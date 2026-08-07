@@ -1,8 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Search, Bell, User, Home, Radio, Star, Menu } from "lucide-react";
-import { SPORTS, liveMatches, getTeam, getLeague } from "@/data";
+import { Search, Bell, User, Home, Radio, Star } from "lucide-react";
+import { SPORTS, liveMatches, getTeam } from "@/data";
 import { Crest } from "@/components/sv/Crest";
-import { LiveBadge } from "@/components/sv/primitives";
 import type { ReactNode } from "react";
 
 function Ticker() {
@@ -19,8 +18,8 @@ function Ticker() {
           return (
             <Link
               key={m.id}
-              to="/$sport/match/$matchId"
-              params={{ sport: m.sport, matchId: m.id }}
+              to={"/$sport/match/$matchId" as never}
+              params={{ sport: m.sport, matchId: m.id } as never}
               className="flex shrink-0 items-center gap-2 rounded-md px-2.5 py-1 text-xs transition-colors hover:bg-surface-2"
             >
               <Crest team={h.slug} size="xs" />
@@ -56,8 +55,8 @@ export function AppShell({ children }: { children: ReactNode }) {
             {active.slice(0, 7).map((s) => (
               <Link
                 key={s.slug}
-                to="/$sport"
-                params={{ sport: s.slug }}
+                to={"/$sport" as never}
+                params={{ sport: s.slug } as never}
                 className="rounded-md px-2.5 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-surface-2 hover:text-foreground"
                 activeProps={{ className: "bg-surface-2 text-foreground" }}
               >
@@ -66,13 +65,13 @@ export function AppShell({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <div className="flex items-center gap-1">
-            <Link to="/search" className="grid size-9 place-items-center rounded-md hover:bg-surface-2">
+            <Link to={"/search" as never} className="grid size-9 place-items-center rounded-md hover:bg-surface-2">
               <Search className="size-4" />
             </Link>
-            <Link to="/notifications" className="grid size-9 place-items-center rounded-md hover:bg-surface-2">
+            <Link to={"/notifications" as never} className="grid size-9 place-items-center rounded-md hover:bg-surface-2">
               <Bell className="size-4" />
             </Link>
-            <Link to="/profile" className="grid size-9 place-items-center rounded-md hover:bg-surface-2">
+            <Link to={"/profile" as never} className="grid size-9 place-items-center rounded-md hover:bg-surface-2">
               <User className="size-4" />
             </Link>
           </div>
@@ -86,8 +85,8 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-4">
           <span>© {new Date().getFullYear()} ScoreVault — reference statistics for every sport.</span>
           <div className="flex gap-4">
-            <Link to="/privacy" className="hover:text-foreground">Privacy</Link>
-            <Link to="/terms" className="hover:text-foreground">Terms</Link>
+            <Link to={"/privacy" as never} className="hover:text-foreground">Privacy</Link>
+            <Link to={"/terms" as never} className="hover:text-foreground">Terms</Link>
           </div>
         </div>
       </footer>
@@ -102,7 +101,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         ].map((i) => (
           <Link
             key={i.to}
-            to={i.to}
+            to={i.to as never}
             className="flex flex-col items-center gap-1 py-2.5 text-[10px] text-muted-foreground"
             activeProps={{ className: "text-primary" }}
             activeOptions={{ exact: i.to === "/" }}
