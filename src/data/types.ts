@@ -113,7 +113,7 @@ export interface MatchEvent {
   type: "goal" | "own-goal" | "penalty" | "yellow" | "red" | "sub" | "assist" | "period" | "var";
   side: "home" | "away";
   player: string;
-  detail?: string;
+  detail?: string | undefined;
 }
 
 export interface Match {
@@ -129,7 +129,7 @@ export interface Match {
   period: string;
   kickoff: string;
   venue: string;
-  attendance?: number;
+  attendance?: number | undefined;
   events: MatchEvent[];
   stats: { key: string; label: string; home: number; away: number; pct?: boolean }[];
   lineups: { home: LineupSlot[]; away: LineupSlot[] };
