@@ -92,7 +92,7 @@ export interface Player {
   heightCm: number;
   weightKg: number;
   nationality: string;
-  foot?: string;
+  foot?: string | undefined;
   bio: string;
   seasons: PlayerSeason[];
   stats: Record<string, number>;
