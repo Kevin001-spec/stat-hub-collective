@@ -263,7 +263,7 @@ export function standingsFor(leagueSlug: string): StandingRow[] {
       Object.assign(values, { pl, w, l, nr, nrr: Number((strength * 1.4 - 0.6).toFixed(2)), pts: w * 2 + nr });
     } else {
       for (const c of sport.standings) values[c.key] = statValue(c.key, r, 2);
-      values.rank = i + 1;
+      values["rank"] = i + 1;
     }
     const form = Array.from({ length: 5 }, () => {
       const v = r.next();
