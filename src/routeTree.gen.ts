@@ -21,6 +21,8 @@ import { Route as SearchRouteImport } from './routes/search'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as WelcomeRouteImport } from './routes/welcome'
+import { Route as SportIndexRouteImport } from './routes/$sport.index'
+import { Route as SportStatsRouteImport } from './routes/$sport.stats'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -82,6 +84,16 @@ const WelcomeRoute = WelcomeRouteImport.update({
   path: '/welcome',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SportIndexRoute = SportIndexRouteImport.update({
+  id: '/$sport/',
+  path: '/$sport/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportStatsRoute = SportStatsRouteImport.update({
+  id: '/$sport/stats',
+  path: '/$sport/stats',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -96,6 +108,8 @@ export interface FileRoutesByFullPath {
   '/signup': typeof SignupRoute
   '/terms': typeof TermsRoute
   '/welcome': typeof WelcomeRoute
+  '/$sport/stats': typeof SportStatsRoute
+  '/$sport/': typeof SportIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -110,6 +124,8 @@ export interface FileRoutesByTo {
   '/signup': typeof SignupRoute
   '/terms': typeof TermsRoute
   '/welcome': typeof WelcomeRoute
+  '/$sport/stats': typeof SportStatsRoute
+  '/$sport': typeof SportIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -125,6 +141,8 @@ export interface FileRoutesById {
   '/signup': typeof SignupRoute
   '/terms': typeof TermsRoute
   '/welcome': typeof WelcomeRoute
+  '/$sport/stats': typeof SportStatsRoute
+  '/$sport/': typeof SportIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,6 +159,8 @@ export interface FileRouteTypes {
     | '/signup'
     | '/terms'
     | '/welcome'
+    | '/$sport/stats'
+    | '/$sport/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -155,6 +175,8 @@ export interface FileRouteTypes {
     | '/signup'
     | '/terms'
     | '/welcome'
+    | '/$sport/stats'
+    | '/$sport'
   id:
     | '__root__'
     | '/'
@@ -169,6 +191,8 @@ export interface FileRouteTypes {
     | '/signup'
     | '/terms'
     | '/welcome'
+    | '/$sport/stats'
+    | '/$sport/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -184,6 +208,8 @@ export interface RootRouteChildren {
   SignupRoute: typeof SignupRoute
   TermsRoute: typeof TermsRoute
   WelcomeRoute: typeof WelcomeRoute
+  SportStatsRoute: typeof SportStatsRoute
+  SportIndexRoute: typeof SportIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -272,6 +298,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WelcomeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$sport/': {
+      id: '/$sport/'
+      path: '/$sport'
+      fullPath: '/$sport/'
+      preLoaderRoute: typeof SportIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$sport/stats': {
+      id: '/$sport/stats'
+      path: '/$sport/stats'
+      fullPath: '/$sport/stats'
+      preLoaderRoute: typeof SportStatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -288,6 +328,8 @@ const rootRouteChildren: RootRouteChildren = {
   SignupRoute: SignupRoute,
   TermsRoute: TermsRoute,
   WelcomeRoute: WelcomeRoute,
+  SportStatsRoute: SportStatsRoute,
+  SportIndexRoute: SportIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
