@@ -25,6 +25,9 @@ import { Route as SportIndexRouteImport } from './routes/$sport.index'
 import { Route as SportStatsRouteImport } from './routes/$sport.stats'
 import { Route as SportLeagueIndexRouteImport } from './routes/$sport.$league.index'
 import { Route as SportLeagueStandingsRouteImport } from './routes/$sport.$league.standings'
+import { Route as SportMatchMatchIdRouteImport } from './routes/$sport.match.$matchId'
+import { Route as SportPlayerSlugRouteImport } from './routes/$sport.player.$slug'
+import { Route as SportTeamSlugRouteImport } from './routes/$sport.team.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -106,6 +109,21 @@ const SportLeagueStandingsRoute = SportLeagueStandingsRouteImport.update({
   path: '/$sport/$league/standings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SportMatchMatchIdRoute = SportMatchMatchIdRouteImport.update({
+  id: '/$sport/match/$matchId',
+  path: '/$sport/match/$matchId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportPlayerSlugRoute = SportPlayerSlugRouteImport.update({
+  id: '/$sport/player/$slug',
+  path: '/$sport/player/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportTeamSlugRoute = SportTeamSlugRouteImport.update({
+  id: '/$sport/team/$slug',
+  path: '/$sport/team/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -123,6 +141,9 @@ export interface FileRoutesByFullPath {
   '/$sport/stats': typeof SportStatsRoute
   '/$sport/': typeof SportIndexRoute
   '/$sport/$league/standings': typeof SportLeagueStandingsRoute
+  '/$sport/match/$matchId': typeof SportMatchMatchIdRoute
+  '/$sport/player/$slug': typeof SportPlayerSlugRoute
+  '/$sport/team/$slug': typeof SportTeamSlugRoute
   '/$sport/$league/': typeof SportLeagueIndexRoute
 }
 export interface FileRoutesByTo {
@@ -141,6 +162,9 @@ export interface FileRoutesByTo {
   '/$sport/stats': typeof SportStatsRoute
   '/$sport': typeof SportIndexRoute
   '/$sport/$league/standings': typeof SportLeagueStandingsRoute
+  '/$sport/match/$matchId': typeof SportMatchMatchIdRoute
+  '/$sport/player/$slug': typeof SportPlayerSlugRoute
+  '/$sport/team/$slug': typeof SportTeamSlugRoute
   '/$sport/$league': typeof SportLeagueIndexRoute
 }
 export interface FileRoutesById {
@@ -160,6 +184,9 @@ export interface FileRoutesById {
   '/$sport/stats': typeof SportStatsRoute
   '/$sport/': typeof SportIndexRoute
   '/$sport/$league/standings': typeof SportLeagueStandingsRoute
+  '/$sport/match/$matchId': typeof SportMatchMatchIdRoute
+  '/$sport/player/$slug': typeof SportPlayerSlugRoute
+  '/$sport/team/$slug': typeof SportTeamSlugRoute
   '/$sport/$league/': typeof SportLeagueIndexRoute
 }
 export interface FileRouteTypes {
@@ -180,6 +207,9 @@ export interface FileRouteTypes {
     | '/$sport/stats'
     | '/$sport/'
     | '/$sport/$league/standings'
+    | '/$sport/match/$matchId'
+    | '/$sport/player/$slug'
+    | '/$sport/team/$slug'
     | '/$sport/$league/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -198,6 +228,9 @@ export interface FileRouteTypes {
     | '/$sport/stats'
     | '/$sport'
     | '/$sport/$league/standings'
+    | '/$sport/match/$matchId'
+    | '/$sport/player/$slug'
+    | '/$sport/team/$slug'
     | '/$sport/$league'
   id:
     | '__root__'
@@ -216,6 +249,9 @@ export interface FileRouteTypes {
     | '/$sport/stats'
     | '/$sport/'
     | '/$sport/$league/standings'
+    | '/$sport/match/$matchId'
+    | '/$sport/player/$slug'
+    | '/$sport/team/$slug'
     | '/$sport/$league/'
   fileRoutesById: FileRoutesById
 }
@@ -235,6 +271,9 @@ export interface RootRouteChildren {
   SportStatsRoute: typeof SportStatsRoute
   SportIndexRoute: typeof SportIndexRoute
   SportLeagueStandingsRoute: typeof SportLeagueStandingsRoute
+  SportMatchMatchIdRoute: typeof SportMatchMatchIdRoute
+  SportPlayerSlugRoute: typeof SportPlayerSlugRoute
+  SportTeamSlugRoute: typeof SportTeamSlugRoute
   SportLeagueIndexRoute: typeof SportLeagueIndexRoute
 }
 
@@ -352,6 +391,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SportLeagueStandingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$sport/match/$matchId': {
+      id: '/$sport/match/$matchId'
+      path: '/$sport/match/$matchId'
+      fullPath: '/$sport/match/$matchId'
+      preLoaderRoute: typeof SportMatchMatchIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$sport/player/$slug': {
+      id: '/$sport/player/$slug'
+      path: '/$sport/player/$slug'
+      fullPath: '/$sport/player/$slug'
+      preLoaderRoute: typeof SportPlayerSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$sport/team/$slug': {
+      id: '/$sport/team/$slug'
+      path: '/$sport/team/$slug'
+      fullPath: '/$sport/team/$slug'
+      preLoaderRoute: typeof SportTeamSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -371,6 +431,9 @@ const rootRouteChildren: RootRouteChildren = {
   SportStatsRoute: SportStatsRoute,
   SportIndexRoute: SportIndexRoute,
   SportLeagueStandingsRoute: SportLeagueStandingsRoute,
+  SportMatchMatchIdRoute: SportMatchMatchIdRoute,
+  SportPlayerSlugRoute: SportPlayerSlugRoute,
+  SportTeamSlugRoute: SportTeamSlugRoute,
   SportLeagueIndexRoute: SportLeagueIndexRoute,
 }
 export const routeTree = rootRouteImport
