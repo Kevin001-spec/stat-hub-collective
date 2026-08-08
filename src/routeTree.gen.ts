@@ -23,6 +23,8 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as WelcomeRouteImport } from './routes/welcome'
 import { Route as SportIndexRouteImport } from './routes/$sport.index'
 import { Route as SportStatsRouteImport } from './routes/$sport.stats'
+import { Route as SportLeagueIndexRouteImport } from './routes/$sport.$league.index'
+import { Route as SportLeagueStandingsRouteImport } from './routes/$sport.$league.standings'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -94,6 +96,16 @@ const SportStatsRoute = SportStatsRouteImport.update({
   path: '/$sport/stats',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SportLeagueIndexRoute = SportLeagueIndexRouteImport.update({
+  id: '/$sport/$league/',
+  path: '/$sport/$league/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportLeagueStandingsRoute = SportLeagueStandingsRouteImport.update({
+  id: '/$sport/$league/standings',
+  path: '/$sport/$league/standings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -110,6 +122,8 @@ export interface FileRoutesByFullPath {
   '/welcome': typeof WelcomeRoute
   '/$sport/stats': typeof SportStatsRoute
   '/$sport/': typeof SportIndexRoute
+  '/$sport/$league/standings': typeof SportLeagueStandingsRoute
+  '/$sport/$league/': typeof SportLeagueIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -126,6 +140,8 @@ export interface FileRoutesByTo {
   '/welcome': typeof WelcomeRoute
   '/$sport/stats': typeof SportStatsRoute
   '/$sport': typeof SportIndexRoute
+  '/$sport/$league/standings': typeof SportLeagueStandingsRoute
+  '/$sport/$league': typeof SportLeagueIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -143,6 +159,8 @@ export interface FileRoutesById {
   '/welcome': typeof WelcomeRoute
   '/$sport/stats': typeof SportStatsRoute
   '/$sport/': typeof SportIndexRoute
+  '/$sport/$league/standings': typeof SportLeagueStandingsRoute
+  '/$sport/$league/': typeof SportLeagueIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -161,6 +179,8 @@ export interface FileRouteTypes {
     | '/welcome'
     | '/$sport/stats'
     | '/$sport/'
+    | '/$sport/$league/standings'
+    | '/$sport/$league/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -177,6 +197,8 @@ export interface FileRouteTypes {
     | '/welcome'
     | '/$sport/stats'
     | '/$sport'
+    | '/$sport/$league/standings'
+    | '/$sport/$league'
   id:
     | '__root__'
     | '/'
@@ -193,6 +215,8 @@ export interface FileRouteTypes {
     | '/welcome'
     | '/$sport/stats'
     | '/$sport/'
+    | '/$sport/$league/standings'
+    | '/$sport/$league/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -210,6 +234,8 @@ export interface RootRouteChildren {
   WelcomeRoute: typeof WelcomeRoute
   SportStatsRoute: typeof SportStatsRoute
   SportIndexRoute: typeof SportIndexRoute
+  SportLeagueStandingsRoute: typeof SportLeagueStandingsRoute
+  SportLeagueIndexRoute: typeof SportLeagueIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -312,6 +338,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SportStatsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$sport/$league/': {
+      id: '/$sport/$league/'
+      path: '/$sport/$league'
+      fullPath: '/$sport/$league/'
+      preLoaderRoute: typeof SportLeagueIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$sport/$league/standings': {
+      id: '/$sport/$league/standings'
+      path: '/$sport/$league/standings'
+      fullPath: '/$sport/$league/standings'
+      preLoaderRoute: typeof SportLeagueStandingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -330,6 +370,8 @@ const rootRouteChildren: RootRouteChildren = {
   WelcomeRoute: WelcomeRoute,
   SportStatsRoute: SportStatsRoute,
   SportIndexRoute: SportIndexRoute,
+  SportLeagueStandingsRoute: SportLeagueStandingsRoute,
+  SportLeagueIndexRoute: SportLeagueIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
