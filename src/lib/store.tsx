@@ -103,7 +103,7 @@ const initial: StoreState = {
   prefs: {},
   saved: [],
   notifications: seedNotifications(),
-  theme: "dark",
+  theme: "light",
   onboarded: false,
 };
 

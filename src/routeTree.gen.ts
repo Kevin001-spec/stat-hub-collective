@@ -10,33 +10,271 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FollowingRouteImport } from './routes/following'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as LiveRouteImport } from './routes/live'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as WelcomeRouteImport } from './routes/welcome'
+import { Route as SportIndexRouteImport } from './routes/$sport.index'
+import { Route as SportStatsRouteImport } from './routes/$sport.stats'
+import { Route as SportLeagueIndexRouteImport } from './routes/$sport.$league.index'
+import { Route as SportLeagueStandingsRouteImport } from './routes/$sport.$league.standings'
+import { Route as SportMatchMatchIdRouteImport } from './routes/$sport.match.$matchId'
+import { Route as SportPlayerSlugRouteImport } from './routes/$sport.player.$slug'
+import { Route as SportTeamSlugRouteImport } from './routes/$sport.team.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FollowingRoute = FollowingRouteImport.update({
+  id: '/following',
+  path: '/following',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LiveRoute = LiveRouteImport.update({
+  id: '/live',
+  path: '/live',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelcomeRoute = WelcomeRouteImport.update({
+  id: '/welcome',
+  path: '/welcome',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportIndexRoute = SportIndexRouteImport.update({
+  id: '/$sport/',
+  path: '/$sport/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportStatsRoute = SportStatsRouteImport.update({
+  id: '/$sport/stats',
+  path: '/$sport/stats',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportLeagueIndexRoute = SportLeagueIndexRouteImport.update({
+  id: '/$sport/$league/',
+  path: '/$sport/$league/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportLeagueStandingsRoute = SportLeagueStandingsRouteImport.update({
+  id: '/$sport/$league/standings',
+  path: '/$sport/$league/standings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportMatchMatchIdRoute = SportMatchMatchIdRouteImport.update({
+  id: '/$sport/match/$matchId',
+  path: '/$sport/match/$matchId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportPlayerSlugRoute = SportPlayerSlugRouteImport.update({
+  id: '/$sport/player/$slug',
+  path: '/$sport/player/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportTeamSlugRoute = SportTeamSlugRouteImport.update({
+  id: '/$sport/team/$slug',
+  path: '/$sport/team/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/following': typeof FollowingRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/live': typeof LiveRoute
+  '/login': typeof LoginRoute
+  '/notifications': typeof NotificationsRoute
+  '/privacy': typeof PrivacyRoute
+  '/profile': typeof ProfileRoute
+  '/search': typeof SearchRoute
+  '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
+  '/welcome': typeof WelcomeRoute
+  '/$sport/stats': typeof SportStatsRoute
+  '/$sport/': typeof SportIndexRoute
+  '/$sport/$league/standings': typeof SportLeagueStandingsRoute
+  '/$sport/match/$matchId': typeof SportMatchMatchIdRoute
+  '/$sport/player/$slug': typeof SportPlayerSlugRoute
+  '/$sport/team/$slug': typeof SportTeamSlugRoute
+  '/$sport/$league/': typeof SportLeagueIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/following': typeof FollowingRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/live': typeof LiveRoute
+  '/login': typeof LoginRoute
+  '/notifications': typeof NotificationsRoute
+  '/privacy': typeof PrivacyRoute
+  '/profile': typeof ProfileRoute
+  '/search': typeof SearchRoute
+  '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
+  '/welcome': typeof WelcomeRoute
+  '/$sport/stats': typeof SportStatsRoute
+  '/$sport': typeof SportIndexRoute
+  '/$sport/$league/standings': typeof SportLeagueStandingsRoute
+  '/$sport/match/$matchId': typeof SportMatchMatchIdRoute
+  '/$sport/player/$slug': typeof SportPlayerSlugRoute
+  '/$sport/team/$slug': typeof SportTeamSlugRoute
+  '/$sport/$league': typeof SportLeagueIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/following': typeof FollowingRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/live': typeof LiveRoute
+  '/login': typeof LoginRoute
+  '/notifications': typeof NotificationsRoute
+  '/privacy': typeof PrivacyRoute
+  '/profile': typeof ProfileRoute
+  '/search': typeof SearchRoute
+  '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
+  '/welcome': typeof WelcomeRoute
+  '/$sport/stats': typeof SportStatsRoute
+  '/$sport/': typeof SportIndexRoute
+  '/$sport/$league/standings': typeof SportLeagueStandingsRoute
+  '/$sport/match/$matchId': typeof SportMatchMatchIdRoute
+  '/$sport/player/$slug': typeof SportPlayerSlugRoute
+  '/$sport/team/$slug': typeof SportTeamSlugRoute
+  '/$sport/$league/': typeof SportLeagueIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/following'
+    | '/forgot-password'
+    | '/live'
+    | '/login'
+    | '/notifications'
+    | '/privacy'
+    | '/profile'
+    | '/search'
+    | '/signup'
+    | '/terms'
+    | '/welcome'
+    | '/$sport/stats'
+    | '/$sport/'
+    | '/$sport/$league/standings'
+    | '/$sport/match/$matchId'
+    | '/$sport/player/$slug'
+    | '/$sport/team/$slug'
+    | '/$sport/$league/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/following'
+    | '/forgot-password'
+    | '/live'
+    | '/login'
+    | '/notifications'
+    | '/privacy'
+    | '/profile'
+    | '/search'
+    | '/signup'
+    | '/terms'
+    | '/welcome'
+    | '/$sport/stats'
+    | '/$sport'
+    | '/$sport/$league/standings'
+    | '/$sport/match/$matchId'
+    | '/$sport/player/$slug'
+    | '/$sport/team/$slug'
+    | '/$sport/$league'
+  id:
+    | '__root__'
+    | '/'
+    | '/following'
+    | '/forgot-password'
+    | '/live'
+    | '/login'
+    | '/notifications'
+    | '/privacy'
+    | '/profile'
+    | '/search'
+    | '/signup'
+    | '/terms'
+    | '/welcome'
+    | '/$sport/stats'
+    | '/$sport/'
+    | '/$sport/$league/standings'
+    | '/$sport/match/$matchId'
+    | '/$sport/player/$slug'
+    | '/$sport/team/$slug'
+    | '/$sport/$league/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FollowingRoute: typeof FollowingRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
+  LiveRoute: typeof LiveRoute
+  LoginRoute: typeof LoginRoute
+  NotificationsRoute: typeof NotificationsRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ProfileRoute: typeof ProfileRoute
+  SearchRoute: typeof SearchRoute
+  SignupRoute: typeof SignupRoute
+  TermsRoute: typeof TermsRoute
+  WelcomeRoute: typeof WelcomeRoute
+  SportStatsRoute: typeof SportStatsRoute
+  SportIndexRoute: typeof SportIndexRoute
+  SportLeagueStandingsRoute: typeof SportLeagueStandingsRoute
+  SportMatchMatchIdRoute: typeof SportMatchMatchIdRoute
+  SportPlayerSlugRoute: typeof SportPlayerSlugRoute
+  SportTeamSlugRoute: typeof SportTeamSlugRoute
+  SportLeagueIndexRoute: typeof SportLeagueIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +286,156 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/following': {
+      id: '/following'
+      path: '/following'
+      fullPath: '/following'
+      preLoaderRoute: typeof FollowingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/live': {
+      id: '/live'
+      path: '/live'
+      fullPath: '/live'
+      preLoaderRoute: typeof LiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welcome': {
+      id: '/welcome'
+      path: '/welcome'
+      fullPath: '/welcome'
+      preLoaderRoute: typeof WelcomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$sport/': {
+      id: '/$sport/'
+      path: '/$sport'
+      fullPath: '/$sport/'
+      preLoaderRoute: typeof SportIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$sport/stats': {
+      id: '/$sport/stats'
+      path: '/$sport/stats'
+      fullPath: '/$sport/stats'
+      preLoaderRoute: typeof SportStatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$sport/$league/': {
+      id: '/$sport/$league/'
+      path: '/$sport/$league'
+      fullPath: '/$sport/$league/'
+      preLoaderRoute: typeof SportLeagueIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$sport/$league/standings': {
+      id: '/$sport/$league/standings'
+      path: '/$sport/$league/standings'
+      fullPath: '/$sport/$league/standings'
+      preLoaderRoute: typeof SportLeagueStandingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$sport/match/$matchId': {
+      id: '/$sport/match/$matchId'
+      path: '/$sport/match/$matchId'
+      fullPath: '/$sport/match/$matchId'
+      preLoaderRoute: typeof SportMatchMatchIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$sport/player/$slug': {
+      id: '/$sport/player/$slug'
+      path: '/$sport/player/$slug'
+      fullPath: '/$sport/player/$slug'
+      preLoaderRoute: typeof SportPlayerSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$sport/team/$slug': {
+      id: '/$sport/team/$slug'
+      path: '/$sport/team/$slug'
+      fullPath: '/$sport/team/$slug'
+      preLoaderRoute: typeof SportTeamSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FollowingRoute: FollowingRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
+  LiveRoute: LiveRoute,
+  LoginRoute: LoginRoute,
+  NotificationsRoute: NotificationsRoute,
+  PrivacyRoute: PrivacyRoute,
+  ProfileRoute: ProfileRoute,
+  SearchRoute: SearchRoute,
+  SignupRoute: SignupRoute,
+  TermsRoute: TermsRoute,
+  WelcomeRoute: WelcomeRoute,
+  SportStatsRoute: SportStatsRoute,
+  SportIndexRoute: SportIndexRoute,
+  SportLeagueStandingsRoute: SportLeagueStandingsRoute,
+  SportMatchMatchIdRoute: SportMatchMatchIdRoute,
+  SportPlayerSlugRoute: SportPlayerSlugRoute,
+  SportTeamSlugRoute: SportTeamSlugRoute,
+  SportLeagueIndexRoute: SportLeagueIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
