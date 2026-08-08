@@ -23,7 +23,7 @@ const GROUPS: { type: SearchHit["type"]; label: string }[] = [
   { type: "match", label: "Matches" },
 ];
 
-function hitLink(hit: SearchHit) {
+function hitLink(hit: SearchHit): { to: string; params: Record<string, string> } {
   if (hit.type === "team") return { to: "/$sport/team/$slug", params: { sport: hit.sport, slug: hit.slug } } as const;
   if (hit.type === "player") return { to: "/$sport/player/$slug", params: { sport: hit.sport, slug: hit.slug } } as const;
   if (hit.type === "match") return { to: "/$sport/match/$matchId", params: { sport: hit.sport, matchId: hit.slug } } as const;
@@ -63,7 +63,8 @@ function SearchPage() {
                 {rows.map((h) => (
                   <Link
                     key={`${h.type}-${h.slug}`}
-                    {...(hitLink(h) as never)}
+                    to={hitLink(h).to as never}
+                    params={hitLink(h).params as never}
                     className="block p-3.5 transition-colors hover:bg-surface-2"
                   >
                     <div className="text-sm font-medium">{h.title}</div>
