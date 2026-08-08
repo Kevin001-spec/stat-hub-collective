@@ -15,9 +15,11 @@ import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as LiveRouteImport } from './routes/live'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as SignupRouteImport } from './routes/signup'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as WelcomeRouteImport } from './routes/welcome'
 
 const IndexRoute = IndexRouteImport.update({
@@ -50,6 +52,11 @@ const NotificationsRoute = NotificationsRouteImport.update({
   path: '/notifications',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
@@ -65,6 +72,11 @@ const SignupRoute = SignupRouteImport.update({
   path: '/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WelcomeRoute = WelcomeRouteImport.update({
   id: '/welcome',
   path: '/welcome',
@@ -78,9 +90,11 @@ export interface FileRoutesByFullPath {
   '/live': typeof LiveRoute
   '/login': typeof LoginRoute
   '/notifications': typeof NotificationsRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
   '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
   '/welcome': typeof WelcomeRoute
 }
 export interface FileRoutesByTo {
@@ -90,9 +104,11 @@ export interface FileRoutesByTo {
   '/live': typeof LiveRoute
   '/login': typeof LoginRoute
   '/notifications': typeof NotificationsRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
   '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
   '/welcome': typeof WelcomeRoute
 }
 export interface FileRoutesById {
@@ -103,9 +119,11 @@ export interface FileRoutesById {
   '/live': typeof LiveRoute
   '/login': typeof LoginRoute
   '/notifications': typeof NotificationsRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
   '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
   '/welcome': typeof WelcomeRoute
 }
 export interface FileRouteTypes {
@@ -117,9 +135,11 @@ export interface FileRouteTypes {
     | '/live'
     | '/login'
     | '/notifications'
+    | '/privacy'
     | '/profile'
     | '/search'
     | '/signup'
+    | '/terms'
     | '/welcome'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -129,9 +149,11 @@ export interface FileRouteTypes {
     | '/live'
     | '/login'
     | '/notifications'
+    | '/privacy'
     | '/profile'
     | '/search'
     | '/signup'
+    | '/terms'
     | '/welcome'
   id:
     | '__root__'
@@ -141,9 +163,11 @@ export interface FileRouteTypes {
     | '/live'
     | '/login'
     | '/notifications'
+    | '/privacy'
     | '/profile'
     | '/search'
     | '/signup'
+    | '/terms'
     | '/welcome'
   fileRoutesById: FileRoutesById
 }
@@ -154,9 +178,11 @@ export interface RootRouteChildren {
   LiveRoute: typeof LiveRoute
   LoginRoute: typeof LoginRoute
   NotificationsRoute: typeof NotificationsRoute
+  PrivacyRoute: typeof PrivacyRoute
   ProfileRoute: typeof ProfileRoute
   SearchRoute: typeof SearchRoute
   SignupRoute: typeof SignupRoute
+  TermsRoute: typeof TermsRoute
   WelcomeRoute: typeof WelcomeRoute
 }
 
@@ -204,6 +230,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NotificationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profile': {
       id: '/profile'
       path: '/profile'
@@ -225,6 +258,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/welcome': {
       id: '/welcome'
       path: '/welcome'
@@ -242,9 +282,11 @@ const rootRouteChildren: RootRouteChildren = {
   LiveRoute: LiveRoute,
   LoginRoute: LoginRoute,
   NotificationsRoute: NotificationsRoute,
+  PrivacyRoute: PrivacyRoute,
   ProfileRoute: ProfileRoute,
   SearchRoute: SearchRoute,
   SignupRoute: SignupRoute,
+  TermsRoute: TermsRoute,
   WelcomeRoute: WelcomeRoute,
 }
 export const routeTree = rootRouteImport
